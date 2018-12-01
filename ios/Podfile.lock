@@ -1,0 +1,109 @@
+PODS:
+  - boost-for-react-native (1.63.0)
+  - DoubleConversion (1.1.6)
+  - Folly (2016.10.31.00):
+    - boost-for-react-native
+    - DoubleConversion
+    - glog
+  - glog (0.3.5)
+  - lottie-ios (2.5.0)
+  - lottie-react-native (2.5.10):
+    - lottie-ios
+    - React
+  - React (0.57.5):
+    - React/Core (= 0.57.5)
+  - React/Core (0.57.5):
+    - yoga (= 0.57.5.React)
+  - React/CxxBridge (0.57.5):
+    - Folly (= 2016.10.31.00)
+    - React/Core
+    - React/cxxreact
+  - React/cxxreact (0.57.5):
+    - boost-for-react-native (= 1.63.0)
+    - Folly (= 2016.10.31.00)
+    - React/jschelpers
+    - React/jsinspector
+  - React/DevSupport (0.57.5):
+    - React/Core
+    - React/RCTWebSocket
+  - React/fishhook (0.57.5)
+  - React/jschelpers (0.57.5):
+    - Folly (= 2016.10.31.00)
+    - React/PrivateDatabase
+  - React/jsinspector (0.57.5)
+  - React/PrivateDatabase (0.57.5)
+  - React/RCTAnimation (0.57.5):
+    - React/Core
+  - React/RCTBlob (0.57.5):
+    - React/Core
+  - React/RCTImage (0.57.5):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTLinkingIOS (0.57.5):
+    - React/Core
+  - React/RCTNetwork (0.57.5):
+    - React/Core
+  - React/RCTText (0.57.5):
+    - React/Core
+  - React/RCTWebSocket (0.57.5):
+    - React/Core
+    - React/fishhook
+    - React/RCTBlob
+  - RNSVG (8.0.8):
+    - React
+  - yoga (0.57.5.React)
+
+DEPENDENCIES:
+  - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
+  - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - lottie-ios (from `../node_modules/lottie-ios`)
+  - lottie-react-native (from `../node_modules/lottie-react-native`)
+  - React/Core (from `../node_modules/react-native`)
+  - React/CxxBridge (from `../node_modules/react-native`)
+  - React/DevSupport (from `../node_modules/react-native`)
+  - React/RCTAnimation (from `../node_modules/react-native`)
+  - React/RCTImage (from `../node_modules/react-native`)
+  - React/RCTLinkingIOS (from `../node_modules/react-native`)
+  - React/RCTNetwork (from `../node_modules/react-native`)
+  - React/RCTText (from `../node_modules/react-native`)
+  - React/RCTWebSocket (from `../node_modules/react-native`)
+  - RNSVG (from `../node_modules/react-native-svg`)
+  - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - boost-for-react-native
+
+EXTERNAL SOURCES:
+  DoubleConversion:
+    :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
+  Folly:
+    :podspec: "../node_modules/react-native/third-party-podspecs/Folly.podspec"
+  glog:
+    :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  lottie-ios:
+    :path: "../node_modules/lottie-ios"
+  lottie-react-native:
+    :path: "../node_modules/lottie-react-native"
+  React:
+    :path: "../node_modules/react-native"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
+  yoga:
+    :path: "../node_modules/react-native/ReactCommon/yoga"
+
+SPEC CHECKSUMS:
+  boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
+  Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
+  glog: e8acf0ebbf99759d3ff18c86c292a5898282dcde
+  lottie-ios: 9f24be3ecb13412223b6ac70d97437742b0e3de1
+  lottie-react-native: db4bd75685428c4ad0ec2f913145abff3d38b640
+  React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
+  RNSVG: 6252323c0312735f0af5f58b5adf2965b6a9ffbf
+  yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
+
+PODFILE CHECKSUM: 5e66485cca7e6ae25f0e720765dd494c180ae463
+
+COCOAPODS: 1.5.3
