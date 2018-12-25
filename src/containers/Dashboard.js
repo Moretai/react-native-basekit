@@ -9,7 +9,7 @@ import Profile from './profile';
 
 const tabBarOptions = {
   animationEnabled: false,
-  initialRouteName: 'Messages',
+  initialRouteName: 'Home',
   lazy: true,
   lazyLoad: true,
   swipeEnabled: false,

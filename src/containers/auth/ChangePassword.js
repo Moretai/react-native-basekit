@@ -9,10 +9,9 @@ import { ToastActionsCreators } from 'react-native-redux-toast';
 import { connect } from 'react-redux';
 import Regex from '../../utilities/Regex';
 import Constants from '../../constants';
-import TextInput from '../../components/common/TextInput';
-import Button from '../../components/common/Button';
 import { resetNavigator } from '../../actions/nav-action-types';
 import styles from './Styles';
+import { Button, TextInput } from '../../components';
 
 class ChangePassword extends React.Component {
   static propTypes = {

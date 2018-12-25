@@ -12,7 +12,7 @@ export default function nav(state = initialState, action) {
   const {
     payload, type,
   } = action;
-  let firstState = 'Welcome';
+  let firstState = 'Dashboard';
   const firstStateData = {};
 
   if (Idx(payload, (_) => _.user.userDetails)) {

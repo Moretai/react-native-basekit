@@ -1,76 +1,78 @@
 import { call, select, put } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 import { ToastActionsCreators } from 'react-native-redux-toast';
-import axios from 'axios';
 import { NetInfo } from 'react-native';
+import Idx from 'idx';
 import { showLoader, hideLoader } from '../actions/app-action-types';
-import { logout } from '../actions/user-actions-types';
+import { logoutSuccess, setAuthenticationToken } from '../actions/user-actions-types';
+import axiosInstance from '../utilities/axiosInstance';
 
-export const checkInternetConnectivty = () => new Promise((resolve, reject) => {
+export const checkInternetConnectivity = () => new Promise((resolve, reject) => {
   NetInfo.isConnected.fetch().then((isConnected) => {
     if (isConnected) {
       resolve(isConnected);
     } else {
-      reject(new Error('no intenet'));
+      reject(new Error('no internet'));
     }
   });
 });
 
-const instance = axios.create({
-  baseURL: 'http://localhost:3000',
-  timeout: 5000,
-});
+function* httpClient(payload) {
+  yield put(showLoader());
 
-// Add a request interceptor
-instance.interceptors.request.use((config) => config, (error) => Promise.reject(error));
-
-// Add a response interceptor
-instance.interceptors.response.use((response) => response, (error) => Promise.reject(error));
-
-function* httpClient(data) {
-  const loginToken = yield select(({ user: { token } }) => token);
-  const payload = {
-    ...data,
-    token: loginToken,
+  const authToken = yield select(({ user: { token } }) => token);
+  const data = {
+    ...payload,
+    headers: { Authorization: authToken },
   };
 
   try {
-    const isCoon = yield call(checkInternetConnectivty);
+    const isCoon = yield call(checkInternetConnectivity);
 
     if (isCoon) {
-      yield put(showLoader());
-      yield call(delay, 1000);
-
       try {
+        yield call(delay, 1000);
         const {
-          data: result, error,
-        } = yield call(instance, payload);
+          data: result,
+          headers: { Authorization: authenticationToken = '' },
+        } = yield call(axiosInstance, data);
 
         yield put(hideLoader());
+        if (authenticationToken) {
+          yield put(setAuthenticationToken(authenticationToken));
+        }
 
         return {
-          data: result,
-          error,
+          error: null,
+          result,
         };
       } catch (error) {
         yield put(hideLoader());
-        if (error) {
-          if (error.status === 401) {
-            yield put(logout());
+        if (Idx(error, (_) => _.statusCode)) {
+          if (error.statusCode === 401) {
+            yield put(logoutSuccess());
             yield put(ToastActionsCreators.displayInfo('Session Expired. Please login again.'));
           } else {
-            yield put(ToastActionsCreators.displayInfo('Something went wrong.'));
+            yield put(ToastActionsCreators.displayInfo(error.message));
           }
+        } else {
+          yield put(ToastActionsCreators.displayInfo('Something went wrong. Please again later.'));
         }
+
+        return {
+          error,
+          result: null,
+        };
       }
     }
   } catch (error) {
+    yield put(hideLoader());
     yield put(ToastActionsCreators.displayInfo('Please make sure you\'re connected with internet.'));
   }
 
   return {
-    data: null,
     error: true,
+    result: null,
   };
 }
 

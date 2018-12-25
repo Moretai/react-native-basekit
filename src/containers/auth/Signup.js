@@ -8,10 +8,8 @@ import ReactMixin from 'react-mixin';
 import { ToastActionsCreators } from 'react-native-redux-toast';
 import Regex from '../../utilities/Regex';
 import Constants from '../../constants';
-import TextInput from '../../components/common/TextInput';
-import Button from '../../components/common/Button';
-import NavButton from '../../components/common/NavButton';
 import styles from './Styles';
+import { Button, TextInput, NavButton } from '../../components';
 
 class Signup extends React.Component {
   static propTypes = {

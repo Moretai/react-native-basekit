@@ -1,8 +1,5 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import TimerMixin from 'react-timer-mixin';
-import ReactMixin from 'react-mixin';
-import { shape, func } from 'prop-types';
 import Constants from '../../constants';
 
 const styles = StyleSheet.create({
@@ -12,15 +9,6 @@ const styles = StyleSheet.create({
   },
 });
 
-class Home extends React.Component {
-  static propTypes = { navigation: shape({ navigate: func.isRequired }).isRequired };
+const More = () => <View style={styles.container} />;
 
-  state = { searchText: '' };
-
-  render() {
-    return <View style={styles.container} />;
-  }
-}
-ReactMixin(Home.prototype, TimerMixin);
-
-export default Home;
+export default More;

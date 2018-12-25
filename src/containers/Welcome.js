@@ -3,7 +3,7 @@ import { StyleSheet, View, Image } from 'react-native';
 import { func, shape } from 'prop-types';
 import NavigationBar from 'react-native-navbar';
 import Constants from '../constants';
-import Button from '../components/common/Button';
+import { Button } from '../components';
 
 const styles = StyleSheet.create({
   buttonStyle: {

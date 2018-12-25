@@ -7,7 +7,7 @@ PODS:
     - glog
   - glog (0.3.5)
   - lottie-ios (2.5.0)
-  - lottie-react-native (2.5.10):
+  - lottie-react-native (2.5.11):
     - lottie-ios
     - React
   - React (0.57.5):
@@ -49,8 +49,6 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - RNSVG (8.0.8):
-    - React
   - yoga (0.57.5.React)
 
 DEPENDENCIES:
@@ -68,7 +66,6 @@ DEPENDENCIES:
   - React/RCTNetwork (from `../node_modules/react-native`)
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
-  - RNSVG (from `../node_modules/react-native-svg`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -88,8 +85,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/lottie-react-native"
   React:
     :path: "../node_modules/react-native"
-  RNSVG:
-    :path: "../node_modules/react-native-svg"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -99,11 +94,10 @@ SPEC CHECKSUMS:
   Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
   glog: e8acf0ebbf99759d3ff18c86c292a5898282dcde
   lottie-ios: 9f24be3ecb13412223b6ac70d97437742b0e3de1
-  lottie-react-native: db4bd75685428c4ad0ec2f913145abff3d38b640
+  lottie-react-native: 31ceb9d2d1423fa99c64d19eb93c0364256a6a3e
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
-  RNSVG: 6252323c0312735f0af5f58b5adf2965b6a9ffbf
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 5e66485cca7e6ae25f0e720765dd494c180ae463
+PODFILE CHECKSUM: a5d99158b9b0f07afd3334494f9d7fc494954944
 
 COCOAPODS: 1.5.3

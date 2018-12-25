@@ -1,7 +1,13 @@
-import { LOGIN_SUCCESS, LOGOUT_SUCCESS, UPDATE_PROFILE } from '../actions/user-actions-types';
+import uniqBy from 'lodash/uniqBy';
+import { LOGIN_SUCCESS,
+  LOGOUT_SUCCESS,
+  GET_MOVIES_SUCCESS,
+  SET_AUTHENTICATION_TOKEN,
+  UPDATE_PROFILE } from '../actions/user-actions-types';
 
 const initialState = {
-  token: null,
+  movies: [],
+  token: '',
   userDetails: null,
 };
 
@@ -9,6 +15,12 @@ export default function user(state = initialState, {
   payload, type,
 }) {
   switch (type) {
+    case GET_MOVIES_SUCCESS:
+      return {
+        ...state,
+        movies: uniqBy([...state.movies, ...payload], 'id'),
+      };
+
     case LOGIN_SUCCESS:
       return {
         ...state,
@@ -22,6 +34,12 @@ export default function user(state = initialState, {
           ...state.userDetails,
           ...payload,
         },
+      };
+
+    case SET_AUTHENTICATION_TOKEN:
+      return {
+        ...state,
+        token: payload,
       };
 
     case LOGOUT_SUCCESS:
