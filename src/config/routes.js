@@ -1,10 +1,10 @@
-import ChangePassword from '../containers/auth/ChangePassword';
-import Dashboard from '../containers/Dashboard';
-import ForgotPassword from '../containers/auth/ForgotPassword';
-import Loader from '../components/common/Loader';
-import Login from '../containers/auth/Login';
-import Signup from '../containers/auth/Signup';
-import Welcome from '../containers/Welcome';
+import ChangePassword from '../containers/auth/change-password';
+import Dashboard from '../containers/dashboard';
+import ForgotPassword from '../containers/auth/forgot-password';
+import { Loader } from '../components';
+import Login from '../containers/auth/login';
+import Signup from '../containers/auth/signup';
+import Welcome from '../containers/welcome';
 
 export default {
   ChangePassword: { screen: ChangePassword },

@@ -3,6 +3,7 @@ import { LOGIN_SUCCESS,
   LOGOUT_SUCCESS,
   GET_MOVIES_SUCCESS,
   SET_AUTHENTICATION_TOKEN,
+  SET_DEVICE_TOKEN,
   UPDATE_PROFILE } from '../actions/user-actions-types';
 
 const initialState = {
@@ -40,6 +41,12 @@ export default function user(state = initialState, {
       return {
         ...state,
         token: payload,
+      };
+
+    case SET_DEVICE_TOKEN:
+      return {
+        ...state,
+        deviceToken: payload,
       };
 
     case LOGOUT_SUCCESS:

@@ -1,6 +1,4 @@
-'use-strict';
-
-import { moderateScale } from '../utilities/ResponsiveFonts';
+import { moderateScale } from '../utilities/responsive-fonts';
 
 const Fonts = {
   extraLarge: {

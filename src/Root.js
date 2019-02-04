@@ -3,7 +3,7 @@ import { StyleSheet, View, Platform, StatusBar } from 'react-native';
 import { Toast } from 'react-native-redux-toast';
 import Navigator from './config/navigator';
 import Constants from './constants';
-import Progress from './components/common/Progress';
+import { Progress } from './components';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +21,9 @@ const styles = StyleSheet.create({
 
 const Root = () => (
   <View style={styles.container}>
-    {Platform.OS === 'android' && <StatusBar backgroundColor={Constants.Colors.AccentColor} />}
+    {Platform.OS === 'android' && (
+      <StatusBar backgroundColor={Constants.Colors.AccentColor} />
+    )}
     <Progress />
     <Navigator />
     <Toast

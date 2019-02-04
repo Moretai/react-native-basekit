@@ -1,4 +1,4 @@
-const colors = {
+const COLORS = {
   BLACK: '#000000',
   BORDER_COLOR: '#D9DADD',
   BUTTON_COLOR: '#4f47A4',
@@ -19,4 +19,4 @@ const colors = {
   WHITE: '#FFFFFF',
 };
 
-module.exports = colors;
+module.exports = COLORS;

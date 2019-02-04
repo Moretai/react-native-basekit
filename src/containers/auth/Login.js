@@ -1,15 +1,21 @@
 import React from 'react';
-import { Keyboard, findNodeHandle, View, Image, ScrollView, Text, Platform, TouchableOpacity } from 'react-native';
-import NavigationBar from 'react-native-navbar';
+import { Keyboard,
+  findNodeHandle,
+  View,
+  Image,
+  ScrollView,
+  Text,
+  Platform,
+  TouchableOpacity } from 'react-native';
 import _ from 'lodash';
 import { func, shape } from 'prop-types';
 import TimerMixin from 'react-timer-mixin';
 import ReactMixin from 'react-mixin';
 import { ToastActionsCreators } from 'react-native-redux-toast';
-import Regex from '../../utilities/Regex';
+import Regex from '../../utilities/regex';
 import Constants from '../../constants';
-import styles from './Styles';
-import { Button, TextInput, NavButton } from '../../components';
+import { AuthStyles } from '../../styles';
+import { Button, TextInput } from '../../components';
 
 class Login extends React.Component {
   static propTypes = {
@@ -25,7 +31,9 @@ class Login extends React.Component {
   };
 
   usernameRef = React.createRef();
+
   passwordRef = React.createRef();
+
   scrollViewRef = React.createRef();
 
   onSubmit = () => {
@@ -40,7 +48,10 @@ class Login extends React.Component {
       },
     } = this.props;
     const {
-      enterEmail, enterValidEmail, enterPassword, invalidPassword,
+      enterEmail,
+      enterValidEmail,
+      enterPassword,
+      invalidPassword,
     } = Constants.i18n.validations;
 
     if (_.isEmpty(username.trim())) {
@@ -96,11 +107,7 @@ class Login extends React.Component {
     const {
       username, password,
     } = this.state;
-    const {
-      navigation: {
-        navigate, goBack,
-      },
-    } = this.props;
+    const { navigation: { navigate } } = this.props;
     const {
       common: {
         emailAddress, password: passwordText, forgotPass, or,
@@ -111,13 +118,8 @@ class Login extends React.Component {
     } = Constants.i18n;
 
     return (
-      <View style={styles.container}>
-        <NavigationBar
-          style={styles.navigationBarStyle}
-          statusBar={{ style: 'default' }}
-          leftButton={<NavButton onPress={() => goBack()} />}
-        />
-        <View style={styles.content}>
+      <View style={AuthStyles.container}>
+        <View style={AuthStyles.content}>
           <ScrollView
             ref={this.scrollViewRef}
             showsHorizontalScrollIndicator={false}
@@ -125,7 +127,10 @@ class Login extends React.Component {
             keyboardDismissMode={Platform.OS === 'ios' ? 'on-drag' : 'none'}
             keyboardShouldPersistTaps="always"
           >
-            <Image source={Constants.Images.logo} style={styles.logoStyle} />
+            <Image
+              source={Constants.Images.logo}
+              style={AuthStyles.logoStyle}
+            />
             <TextInput
               ref={this.usernameRef}
               value={username}
@@ -162,16 +167,24 @@ class Login extends React.Component {
               onPress={() => navigate('ForgotPassword')}
               activeOpacity={0.9}
             >
-              <Text style={styles.textDecorationLineStyle}>{`${forgotPass.toUpperCase()}?`}</Text>
+              <Text style={AuthStyles.textDecorationLineStyle}>
+                {`${forgotPass.toUpperCase()}?`}
+              </Text>
             </TouchableOpacity>
-            <Button onPress={this.onSubmit} style={styles.buttonStyle} title={login.toUpperCase()} />
-            <Text style={styles.sepratorStyle}>{or}</Text>
+            <Button
+              onPress={this.onSubmit}
+              style={AuthStyles.buttonStyle}
+              title={login.toUpperCase()}
+            />
+            <Text style={AuthStyles.sepratorStyle}>{or}</Text>
             <TouchableOpacity
               hitSlop={Constants.BaseStyle.HIT_SLOP}
               onPress={() => navigate('Signup')}
               activeOpacity={0.9}
             >
-              <Text style={styles.textDecorationLineStyle}>{createAccount}</Text>
+              <Text style={AuthStyles.textDecorationLineStyle}>
+                {createAccount}
+              </Text>
             </TouchableOpacity>
           </ScrollView>
         </View>

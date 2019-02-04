@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, View, StyleSheet, Text, ViewPropTypes } from 'react-native';
 import { oneOfType, string, number } from 'prop-types';
 import Constants from '../../constants';
-import Connection from '../../config/Connection';
+import Connection from '../../config/connection';
 
 const defaultStyles = StyleSheet.create({
   initials: {
@@ -37,7 +37,15 @@ const Avatar = (props) => {
     }
     // inspired by https://github.com/wbinnssmith/react-user-avatar
     // colors from https://flatuicolors.com/
-    const colors = ['#e67e22', '#2ecc71', '#3498db', '#8e44ad', '#e74c3c', '#1abc9c', '#2c3e50'];
+    const colors = [
+      '#e67e22',
+      '#2ecc71',
+      '#3498db',
+      '#8e44ad',
+      '#e74c3c',
+      '#1abc9c',
+      '#2c3e50',
+    ];
 
     return {
       avatarColor: colors[sumChars % colors.length],
@@ -51,7 +59,9 @@ const Avatar = (props) => {
     } = setAvatarColor(user);
 
     return (
-      <View style={[defaultStyles.style, style, { backgroundColor: avatarColor }]}>
+      <View
+        style={[defaultStyles.style, style, { backgroundColor: avatarColor }]}
+      >
         <Text style={defaultStyles.initials}>{avatarName}</Text>
       </View>
     );

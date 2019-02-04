@@ -1,5 +1,10 @@
 import React from 'react';
-import { ViewPropTypes, Text, View, StyleSheet, TouchableOpacity, Picker as DefaultPicker } from 'react-native';
+import { ViewPropTypes,
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Picker as DefaultPicker } from 'react-native';
 import { arrayOf, func, shape, string } from 'prop-types';
 import Constants from '../../constants';
 
@@ -48,15 +53,26 @@ const Picker = ({
   <View style={[styles.mainViewContainer, style]}>
     <View style={styles.modalContainer}>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity hitSlop={Constants.BaseStyle.HIT_SLOP} activeOpacity={0.9} onPress={onClose}>
-          <Text style={styles.cancelButton}>{'Cancel'}</Text>
+        <TouchableOpacity
+          hitSlop={Constants.BaseStyle.HIT_SLOP}
+          activeOpacity={0.9}
+          onPress={onClose}
+        >
+          <Text style={styles.cancelButton}>Cancel</Text>
         </TouchableOpacity>
-        <TouchableOpacity hitSlop={Constants.BaseStyle.HIT_SLOP} activeOpacity={0.9} onPress={onClose}>
-          <Text style={styles.doneButton}>{'Done'}</Text>
+        <TouchableOpacity
+          hitSlop={Constants.BaseStyle.HIT_SLOP}
+          activeOpacity={0.9}
+          onPress={onClose}
+        >
+          <Text style={styles.doneButton}>Done</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.picker}>
-        <DefaultPicker selectedValue={selectedValue} onValueChange={(itemValue) => onChange(itemValue)}>
+        <DefaultPicker
+          selectedValue={selectedValue}
+          onValueChange={(itemValue) => onChange(itemValue)}
+        >
           {items.map(({ name }) => (
             <DefaultPicker.Item key={name} label={name} value={name} />
           ))}

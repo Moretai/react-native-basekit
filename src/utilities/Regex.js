@@ -1,5 +1,19 @@
 /* eslint-disable */
-'use strict';
+"use strict";
+
+export default class Connection {
+  static getBaseUrl() {
+    return "https://facebook.github.io/react-native/movies.json";
+  }
+
+  static getMedia(id) {
+    return `${mediaBaseUrl}/${id}`;
+  }
+
+  static getStaticContent(url) {
+    return `${httpUrl}/${url}`;
+  }
+}
 
 let Regex = {
   validateEmail: function(val) {
@@ -18,7 +32,9 @@ let Regex = {
   },
 
   validateMobileWithoutCC: function(val) {
-    return /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/.test(val);
+    return /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/.test(
+      val
+    );
   },
 
   validateString: function(val) {
@@ -48,7 +64,9 @@ let Regex = {
   },
 
   validateURL: function(url) {
-    return /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/.test(url);
+    return /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/.test(
+      url
+    );
   },
 
   validatePrice(val) {
@@ -75,9 +93,9 @@ let Regex = {
     amount = amount.toString();
     let regEx2 = /[0]+$/; // to check zeros after decimal point
     let regEx3 = /[.]$/; // remove decimal point.
-    if (amount.indexOf('.') > -1) {
-      amount = amount.replace(regEx2, ''); // Remove trailing 0's
-      amount = amount.replace(regEx3, '');
+    if (amount.indexOf(".") > -1) {
+      amount = amount.replace(regEx2, ""); // Remove trailing 0's
+      amount = amount.replace(regEx3, "");
     }
     return parseFloat(amount).toFixed(2);
   },
@@ -113,7 +131,7 @@ let Regex = {
   validateSocialMedia(val) {
     let regex = /http(?:s)?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.com\/([a-zA-Z0-9_]+)/;
     return regex.test(val);
-  },
+  }
 };
 
 module.exports = Regex;

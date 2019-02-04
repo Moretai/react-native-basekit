@@ -2,11 +2,11 @@ import React from 'react';
 import { NetInfo, View, StyleSheet } from 'react-native';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
-import configureStore from './config/ConfigureStore';
-import Root from './Root';
+import configureStore from './config/configure-store';
+import Root from './root';
 import Constants from './constants';
-import './utilities/StringEn';
-import Loader from './components/common/Loader';
+import './utilities/string-en';
+import { Loader } from './components';
 
 const {
   store, persistor,
@@ -22,12 +22,13 @@ const styles = StyleSheet.create({
 class src extends React.Component {
   constructor(props) {
     super(props);
-    console.disableYellowBox = true; // eslint-disable-line
+    this.init();
   }
 
-  componentDidMount() {
+  init = async () => {
+    console.disableYellowBox = true; // eslint-disable-line
     this.handleNetwork();
-  }
+  };
 
   handleNetwork = () => {
     function handleFirstConnectivityChange() {

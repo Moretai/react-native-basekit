@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { StyleSheet, View, Image } from 'react-native';
 import { func, shape } from 'prop-types';
-import NavigationBar from 'react-native-navbar';
 import Constants from '../constants';
 import { Button } from '../components';
 
@@ -37,11 +36,22 @@ class Welcome extends PureComponent {
 
     return (
       <View style={styles.container}>
-        <NavigationBar statusBar={{ style: 'default' }} />
         <View style={styles.content}>
-          <Image resizeMode="contain" source={Constants.Images.logo} style={styles.logoStyle} />
-          <Button onPress={() => navigate('Signup')} style={styles.buttonStyle} title="Signup" />
-          <Button onPress={() => navigate('Login')} style={styles.buttonStyle} title="Login" />
+          <Image
+            resizeMode="contain"
+            source={Constants.Images.logo}
+            style={styles.logoStyle}
+          />
+          <Button
+            onPress={() => navigate('Signup')}
+            style={styles.buttonStyle}
+            title="Signup"
+          />
+          <Button
+            onPress={() => navigate('Login')}
+            style={styles.buttonStyle}
+            title="Login"
+          />
         </View>
       </View>
     );

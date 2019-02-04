@@ -1,10 +1,10 @@
 /* eslint-disable global-require */
 
 module.exports = {
-  BaseStyle: require('./BaseStyle'),
-  Colors: require('./Colors'),
-  DevKeys: require('./DevlopmentKeys'),
-  Fonts: require('./Fonts'),
-  Images: require('./Images'),
+  BaseStyle: require('./base-style'),
+  Colors: require('./colors'),
+  DevKeys: require('./development-keys'),
+  Fonts: require('./fonts'),
+  Images: require('./images'),
   i18n: require('./i18n'),
 };

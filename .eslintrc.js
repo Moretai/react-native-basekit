@@ -1,12 +1,9 @@
 module.exports = {
-  extends: "imbudhiraja/react-native",
+  extends: 'imbudhiraja/react-native',
   rules: {
-    "class-methods-use-this": "off",
-    "filenames/match-exported": "off",
-    "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
-    "react/jsx-curly-brace-presence": [
-      "error",
-      { props: "never", children: "ignore" }
-    ]
-  }
+    'class-methods-use-this': 'off',
+    'filenames/match-exported': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'ignore' }],
+  },
 };

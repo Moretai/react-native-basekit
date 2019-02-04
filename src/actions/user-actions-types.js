@@ -39,5 +39,8 @@ export const logoutSuccess = createAction(LOGOUT_SUCCESS);
 export const SET_AUTHENTICATION_TOKEN = 'SET_AUTHENTICATION_TOKEN';
 export const setAuthenticationToken = createAction(SET_AUTHENTICATION_TOKEN);
 
+export const SET_DEVICE_TOKEN = 'SET_DEVICE_TOKEN';
+export const setDeviceToken = createAction(SET_DEVICE_TOKEN);
+
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const updateProfile = createAction(UPDATE_PROFILE);

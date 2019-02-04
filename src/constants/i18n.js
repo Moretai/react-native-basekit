@@ -1,4 +1,5 @@
-const Strings = {
+/* eslint-disable filenames/match-exported */
+const i18n = {
   common: {
     backToLogin: 'BACK TO LOGIN',
     done: 'Done',
@@ -26,7 +27,8 @@ const Strings = {
     createAccount: 'CREATE NEW ACCOUNT?',
     login: 'Login',
   },
-  networkError: 'Please check your internet connectivity or our server is not responding.',
+  networkError:
+    'Please check your internet connectivity or our server is not responding.',
   password: {
     confirm: 'Confrim Password',
     newPassword: 'New Password',
@@ -46,7 +48,8 @@ const Strings = {
     enterPassword: 'Please enter password.',
     enterPhone: 'Please enter phone number',
     enterValidEmail: 'Please enter a valid email address.',
-    invalidName: 'Name should be 3-15 characters long and name field should contains only alphabets.',
+    invalidName:
+      'Name should be 3-15 characters long and name field should contains only alphabets.',
     invalidPassword:
       'Invalid password, password should contain one alphabet and number and must be 6-16 character long.',
     invalidPhone: 'Please enter a valid phone number.',
@@ -54,4 +57,4 @@ const Strings = {
   },
 };
 
-module.exports = Strings;
+module.exports = i18n;

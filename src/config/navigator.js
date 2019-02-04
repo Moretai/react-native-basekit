@@ -1,5 +1,6 @@
 import { createStackNavigator } from 'react-navigation';
-import { reduxifyNavigator, createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers';
+import { reduxifyNavigator,
+  createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers';
 import { connect } from 'react-redux';
 import routes from './routes';
 
@@ -9,13 +10,19 @@ const stackNavigatorConfiguration = {
   navigationOptions: { gesturesEnabled: false },
 };
 
-export const AppNavigator = createStackNavigator(routes, stackNavigatorConfiguration);
+export const AppNavigator = createStackNavigator(
+  routes,
+  stackNavigatorConfiguration
+);
 
 // Note: createReactNavigationReduxMiddleware must be run before reduxifyNavigatorexport
-export const routerMiddleware = createReactNavigationReduxMiddleware('root', (state) => state.nav);
+export const routerMiddleware = createReactNavigationReduxMiddleware(
+  'root',
+  (state) => state.nav
+);
 
 const App = reduxifyNavigator(AppNavigator, 'root');
 const mapStateToProps = (state) => ({ state: state.nav });
-const AppWithNavigationState = connect(mapStateToProps)(App);
+const navigator = connect(mapStateToProps)(App);
 
-export default AppWithNavigationState;
+export default navigator;

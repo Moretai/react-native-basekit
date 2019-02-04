@@ -11,7 +11,7 @@ import { LOGIN,
   getMoviesFailure,
   getMoviesSuccess,
   GET_MOVIES } from '../actions/user-actions-types';
-import httpClient from './HttpClient';
+import httpClient from './http-client';
 
 export function* login() {
   yield put(loginRequested());
@@ -72,7 +72,11 @@ export function* getMovies() {
 }
 
 function* User() {
-  yield all([takeLatest(GET_MOVIES, getMovies), takeLatest(LOGIN, login), takeLatest(LOGOUT, logout)]);
+  yield all([
+    takeLatest(GET_MOVIES, getMovies),
+    takeLatest(LOGIN, login),
+    takeLatest(LOGOUT, logout),
+  ]);
 }
 
 export default User;

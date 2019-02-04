@@ -23,6 +23,8 @@ target 'ReactNativeBaseKit' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
   pod 'lottie-ios', :path => '../node_modules/lottie-ios'
   pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
+  pod 'Firebase/Core', '~> 5.14.0'
+  pod 'Firebase/Messaging', '~> 5.14.0'
 
 end
 

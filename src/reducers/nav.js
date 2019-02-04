@@ -2,17 +2,19 @@ import Idx from 'idx';
 import { NavigationActions, StackActions } from 'react-navigation';
 import { REHYDRATE } from 'redux-persist';
 import { AppNavigator } from '../config/navigator';
-import { GOBACK, RESET_NAVIGATOR } from '../actions/nav-action-types';
+import { GO_BACK, RESET_NAVIGATOR } from '../actions/nav-action-types';
 import { LOGOUT_SUCCESS } from '../actions/user-actions-types';
 
 const initialRoute = 'Loader';
-const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams(initialRoute));
+const initialState = AppNavigator.router.getStateForAction(
+  AppNavigator.router.getActionForPathAndParams(initialRoute)
+);
 
 export default function nav(state = initialState, action) {
   const {
     payload, type,
   } = action;
-  let firstState = 'Dashboard';
+  let firstState = 'Welcome';
   const firstStateData = {};
 
   if (Idx(payload, (_) => _.user.userDetails)) {
@@ -34,8 +36,11 @@ export default function nav(state = initialState, action) {
         state
       );
 
-    case GOBACK:
-      return AppNavigator.router.getStateForAction(NavigationActions.back(), state);
+    case GO_BACK:
+      return AppNavigator.router.getStateForAction(
+        NavigationActions.back(),
+        state
+      );
 
     case LOGOUT_SUCCESS:
       return AppNavigator.router.getStateForAction(
